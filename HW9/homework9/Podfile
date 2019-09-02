@@ -1,0 +1,12 @@
+# Uncomment the next line to define a global platform for your project
+platform :ios, '12.0'
+use_frameworks!
+
+target 'homework9' do
+    # Pods for homework9
+    pod 'McPicker', '~> 2.0.0'
+    pod 'SwiftSpinner'
+    pod 'Alamofire', '~> 4.8.2'
+    pod 'SwiftyJSON', '~> 4.0'
+    pod 'Toast-Swift', '~> 4.0.0'
+end
