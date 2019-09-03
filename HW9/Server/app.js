@@ -2,12 +2,11 @@ const request = require("request")
 const express = require("express");
 const app = express();
 const port = process.env.PORT || 1337;
-// for security
-const APPID = "";
-const geo_username = "";
-const fb_app_id = "";
-const gl_search_engine_id = "";
-const gl_ak = "";
+const APPID = "ZianWang-hw6leon-PRD-416e557a4-760daf13";
+const geo_username = "werxcvl";
+const fb_app_id = "2325682177645315";
+const gl_search_engine_id = "009867248394399651473%3Aqpab7poqqqs";
+const gl_api_key = "AIzaSyA_UXlADhAKbbdL0KaFmcvrv6gSW5kSOj8";
 
 app.use(express.static("public"))
 
@@ -229,14 +228,14 @@ function getItemByIndex(items, index){
     var item_title = item["title"][0];
     var shorten_title = getShortenTitle(item_title);
     var item_viewItemURL = item["viewItemURL"][0];
-
-
+    
+    
     var item_sellingStatus = item["sellingStatus"][0]["currentPrice"][0];
     var sellerInfo = item["sellerInfo"][0];
     var seller = sellerInfo["sellerUserName"][0];
     // var item_currencyId = item_sellingStatus["@currencyId"];
     var item_value = item_sellingStatus["__value__"];
-
+    
     var return_item = {};
     return_item["itemId"] = item_itemId;
     return_item["title"] = item_title;
@@ -403,8 +402,8 @@ function assembleDetailResult(item_detail){
     var price = itemResult["CurrentPrice"];
     var value = price["Value"];
     var title = itemResult["Title"];
-
-
+    
+    
     var return_policy = itemResult["ReturnPolicy"];
     var return_within = return_policy["ReturnsWithin"];
     var return_accepted = return_policy["ReturnsAccepted"];
@@ -439,7 +438,7 @@ function assembleDetailResult(item_detail){
             sp.push({"name":specific["Name"],"value":specific["Value"][0]});
         }
     } catch (error) {
-
+        
     }
     detail_result["sp"] = sp;
     var policy_accepted = (return_accepted=="ReturnsNotAccepted");
@@ -504,7 +503,7 @@ function assembleDetailFacebook(item_detail){
 
     detail_result["facebookShareUrl"] = facebookShareUrl;
     detail_result["itemId"] = item_id;
-
+    
     return [true,detail_result];
 }
 
@@ -533,8 +532,8 @@ function assembleDetailShipping(item_detail){
         return [false, error_message];
     }
     var itemResult = item_detail["Item"]
-
-
+    
+    
     var detail_result = [];
     // Seller
     var seller = [];
@@ -693,7 +692,7 @@ function getSimilarByIndex(similarResult, i){
     }else{
         similar_item["timeStr"] = timeLeft+" Days Left";
     }
-
+    
     return similar_item;
 }
 
@@ -705,7 +704,7 @@ function buildPictureUrl(query){
     var url = url_base+"?q="+encodeURIComponent(key);
     url += "&cx="+gl_search_engine_id;
     url += "&imgSize=huge&imgType=news&num="+request_number;
-    url += "&searchType=image&key="+gl_ak;
+    url += "&searchType=image&key="+gl_api_key;
     return url;
 }
 
