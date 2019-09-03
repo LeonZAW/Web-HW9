@@ -10,10 +10,10 @@ Homework 9 for Web Technologies in Spring 2019
 ## Decription
 This homework is an iOS mobile app version of [Homework 8](https://github.com/LeonZAW/Web-HW8), which allows users to search for products using the *eBay APIs*, get product details, add products in wishlist, and post on Facebook.
 ## Preview
-* Search Options
+* App Launching
 
 ![Preview1](pics/v91.gif)
-* Search Result
+* Searching
 
 ![Preview2](pics/v92.gif)
 * Item Details & Similar Items
